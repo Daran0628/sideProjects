@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color flipper</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <nav>
+        <h2><a href="./colorFlipper.html">Color Flipper</a></h2>
+        <ul class="nav-tabs">
+            <li><a href="./colorFlipper.html">simple</a></li>
+            <li><a href="./hex.html" class="selected">hex</a></li>
+        </ul>
+    </nav>
+    <section class="main_wrap">
+        <div class="info_box">
+            <h3>background color : 
+                <div class="color_chip"></div>
+                <span class="color">#f5f5f5</span>
+            </h3>
+        </div>
+        <button class="btn" id="btn" type="button">flip! flip!</button>
+    </section>
+    <script>
+        const $btn = document.getElementById("btn");
+        const $bgClr = document.getElementsByTagName('body')[0];
+        const $clrChip = document.getElementsByClassName('color_chip')[0];
+        const $clrCode = document.getElementsByClassName('color')[0];
+
+        const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "a", "b", "c", "d", "e", "f"];
+
+        $btn.addEventListener("click", function(){           
+            let colorHex = "#";
+
+            for(let i = 0; i < 6; i++) {
+                colorHex += hex[getHexRandomNumber()];
+            }
+
+            $bgClr.style.backgroundColor = colorHex;
+            $clrChip.style.backgroundColor = colorHex;
+            $clrCode.innerText = colorHex;
+            
+        })
+
+        function getHexRandomNumber() {
+            return Math.floor(Math.random() * hex.length);
+        }
+    </script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color flipper</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <nav>
+        <h2><a href="./colorFlipper.html">Color Flipper</a></h2>
+        <ul class="nav-tabs">
+            <li><a href="./colorFlipper.html" class="selected">simple</a></li>
+            <li><a href="./hex.html">hex</a></li>
+        </ul>
+    </nav>
+    <section class="main_wrap">
+        <div class="info_box">
+            <h3>background color : 
+                <div class="color_chip"></div>
+                <span class="color">whitesmoke</span>
+            </h3>
+        </div>
+        <button id="btn" class="btn" type="button">flip! flip!</button>
+    </section>
+    <script>
+    
+        const $btn = document.getElementById("btn");
+        const $bgClr = document.getElementsByTagName('body')[0];
+        const $clrChip = document.getElementsByClassName('color_chip')[0];
+        const $clrCode = document.getElementsByClassName('color')[0];
+
+        const colors = ["cornflowerblue", "azure", "cadetblue", "chocolate", "cadetblue"];
+
+        $btn.addEventListener("click", function(){
+            const color = colors[getRandomNumber()];
+
+            $bgClr.style.backgroundColor = color;
+            $clrChip.style.backgroundColor = color;
+            $clrCode.innerText = color;
+            
+        })
+
+        function getRandomNumber() {
+            return Math.floor(Math.random() * colors.length);
+        }
+        
+
+    </script>
+</body>
+</html>

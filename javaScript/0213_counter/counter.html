@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter</title>
+    <style>
+        .counter_wrap {
+            display: flex;flex-direction: column;justify-content: center;align-items: center;
+            width: 50vw;height: 50vh;
+            margin: 10% auto;
+        }
+        #value {
+            font-size: 3.5rem;font-weight: bolder;
+        }
+        .btn_wrap {
+            display: flex;gap: 20px;
+            flex-wrap: nowrap;
+            padding-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter_wrap">
+        <h1>counter</h1>
+        <span id="value">0</span>
+        <div class="btn_wrap">
+            <button class="btn decrease">DECREASE</button>
+            <button class="btn reset">RESET</button>
+            <button class="btn increase">INCREASE</button>
+        </div>
+    </div>
+
+
+    <script>
+        // forEach()를 활용
+
+        const $value = document.querySelector('#value');
+        const $btns = document.querySelectorAll('.btn');
+
+        let count = 0;
+
+        $btns.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                const clkBtn = e.currentTarget.classList;
+                if(clkBtn.contains("decrease")) {
+                    count--;                   
+                } else if(clkBtn.contains("increase")) {
+                    count++;
+                } else {count = 0;}
+                $value.textContent = count;
+            })
+        });
+
+        // const $btnDec = document.querySelector('.decrease');
+        // const $btnReset = document.querySelector('.reset');
+        // const $btnInc = document.querySelector('.increase');
+
+        // const $counter = document.getElementById('value');
+
+        // let count = 0;
+
+        // $btnDec.addEventListener("click", function(){
+        //     count--;
+        //     $counter.innerText = count;
+        // })
+        // $btnReset.addEventListener("click", function(){
+        //     count = 0;
+        //     $counter.innerText = count;
+        // })
+        // $btnInc.addEventListener("click", function(){
+        //     count++;
+        //     $counter.innerText = count;
+        // })
+
+    </script>
+</body>
+</html>
