@@ -1,0 +1,89 @@
+/* main.css for reviewCarousel.html */
+@layer reset {
+    button {
+        background: none;
+        border: none;
+    }
+}
+.review_wrap {
+    display: flex;flex-direction: column;align-items: center;gap: 25px;
+    width: 30rem;
+    padding: 1.5rem 0 3.5rem 0;
+    /* border: 1px solid coral; */
+    background: lightsteelblue;
+    margin: 8.5vh auto;
+}
+h1 {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+h1::after {
+    content:"";
+    position: absolute;left: 50%;bottom: -15%;
+    transform: translateX(-50%);
+    width: 55px;height: 3px;
+    border-bottom: 3px solid cornflowerblue;}
+.review_box {
+    display: flex;flex-direction: column;align-items: center;
+    padding: 2rem 0.75rem;
+    border-radius: 5px;
+    background: white;
+}
+.profile_wrap {
+    position: relative;
+    display: flex;flex-direction: column;align-items: center;
+}
+.word_bubble {
+    position: absolute;left: 0;top: 0;
+    width: 35px;height: 35px;
+    background: cornflowerblue;
+    border-radius: 50%;
+}
+.word_bubble .quote {
+    position: absolute;left: 50%;top: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    font-size: 20px;color: white;
+}
+.profile_wrap .user_pic {
+    display: block;
+    width: 120px;height: 120px;
+    border-radius: 50%;
+    box-shadow: 10px -8px 0 cornflowerblue;
+}
+.profile_wrap p {margin: 0;line-height: 1.5rem;}
+.profile_wrap .user_name {
+    font-size: 1.15rem;font-weight: 700;
+    letter-spacing: 0.15rem;
+}
+.profile_wrap .user_occup {
+    font-size: 1.05rem;color: cornflowerblue;
+    letter-spacing: 0.005rem;
+}
+.nav_btn {
+    width: 35px;height: 35px;
+    /* border: 1px dashed lightblue; */
+}
+.text_wrap {
+    width: 400px;height: 8.5rem;
+    /* border: 1px dashed lightblue; */
+    overflow: none;
+}
+.text_box {
+    width: 100%;
+    font-weight: bold;color: #5684db;
+    text-align: center;
+}
+.arrow {
+    margin: auto;
+    font-size: 30px;line-height: 25px;
+    color: white;
+}
+.random_btn {
+    padding: 0.85rem;
+    /* border: 1px solid black; */
+    border-radius: 50%;
+    font-size: 1.3rem;color: white;
+    background: rgb(75, 101, 152);
+}
