@@ -13,16 +13,18 @@
     <div class="review_wrap">
         <h1>OUR REVIEWS</h1>
         <div class="review_box">
-            <div class="profile_wrap">        
-                <div class="word_bubble">
-                    <i class="fa-solid fa-quote-right quote"></i>
-                </div>
-                <img src="./img/Frame_1.svg" class="user_pic">
-                <p class="user_name">user name</p>
-                <p class="user_occup">user's occupation</p>
+            <div class="profile_wrap">
+                <div class="pic_box">
+                    <div class="word_bubble">
+                        <i class="fa-solid fa-quote-right quote"></i>
+                    </div>
+                    <img id="userPic" src="./img/Frame_0.svg" alt="" class="user_pic">
+                </div>        
+                <p id="userName" class="user_name">user name</p>
+            <p id="userOccup" class="user_occup">user's occupation</p>
             </div>
             <div class="text_wrap">
-                <p class="text_box">
+                <p id="textBox" class="text_box">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                     Eaque velit quasi magni sed harum quod vel fuga beatae, placeat aspernatur molestias suscipit.
                     Quibusdam vel deserunt odio suscipit, voluptatibus quos eligendi!
@@ -30,12 +32,11 @@
             </div>
         </div>
         <div class="nav_btn_box">
-            <button class="nav_btn pre"><i class="fa-solid fa-angle-left arrow"></i></button>
-            <button class="nav_btn next"><i class="fa-solid fa-angle-right arrow"></i></button>
+            <button class="nav_btn" id="pre"><i class="fa-solid fa-angle-left arrow"></i></button>
+            <button class="nav_btn" id="next"><i class="fa-solid fa-angle-right arrow"></i></button>
         </div>
-        <button class="random_btn"><i class="fa-solid fa-shuffle"></i></button>
+        <button class="random_btn" id="shuffle"><i class="fa-solid fa-shuffle"></i></button>
     </div>
-    <script>
-    </script>
+    <script src="./main.js"></script>
 </body>
 </html>
