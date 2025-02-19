@@ -13,6 +13,7 @@ h2 a {color: cornflowerblue;}
     display: flex;flex-direction: column;justify-content: center;align-items: center;gap: 13%;
     width: 90vw;height: 70vh;
     padding: 3% 0;
+    margin: auto;
 }
 .info_box {
     width: 400px;
