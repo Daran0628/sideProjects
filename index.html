@@ -4,16 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DS side projects</title>
+    <style>
+        a {text-decoration: none;color: black;}
+
+        #main_wrap {padding: 1rem 2rem;}
+        section {width: 35rem;}
+        .coder_name {
+            padding-left: 1.5rem;
+            font-size: 1rem;}
+        ol {
+            list-style: inside;
+            list-style-type: decimal-leading-zero;
+            /* border: 1px solid grey; */
+        }
+        li {
+            /* background: lightcyan; */
+            line-height: 1.5rem;
+            border-bottom: 1px dashed grey;
+        }
+        .doneby {font-size: 0.7rem;}
+    </style>
 </head>
 <body>
-    <h1>side projects</h1>
-    <h2 class="js title"><a name="javaScript">Java Script</a></h2>
-    <ol>
-        <li><a href="./javaScript/0212_colorFlipper/colorFlipper.html" target="_blank">Color Flipper - 25.02.12</a></li>
-        <li><a href="./javaScript/0213_counter/counter.html" target="_blank">Counter - 25.02.13</a></li>
-        <li><a href="./javaScript/0214_reviewCarousel/reviewCarousel.html" target="_blank">Review Carousel - 25.02.14</a></li>
-        <!-- <li><a href=""></a></li> -->
-    </ol>
-    <h2 class="ract title"><a name="react">React</a></h2>
+    <div id="main_wrap">
+        <h1>side projects<span class="coder_name">by Daran Shin</span></h1>
+        <section class="js_wrap">
+            <h2 class="js title"><a name="javaScript">Java Script</a></h2>
+            <ol>
+                <li><a href="./javaScript/0212_colorFlipper/colorFlipper.html" title="칼라 플리퍼" target="_blank">Color Flipper <span class="doneby">by 25.02.12</span></a></li>
+                <li><a href="./javaScript/0213_counter/counter.html" title="카운터" target="_blank">Counter <span class="doneby">by 25.02.13</span></a></li>
+                <li><a href="./javaScript/0214_reviewCarousel/reviewCarousel.html" title="리뷰 캐러셀" target="_blank">Review Carousel <span class="doneby">by 25.02.14</span></a></li>
+                <li><a href="./javaScript/0019_responsibleNavBar.html" title="반응형 내비게이션 바" target="_blank">Responsible Navigation Bar <span class="doneby">by 25.02.//</span></a></li>
+                <!-- <li><a href="./javaScript/" title="" target="_blank">title<span class="doneby">by 25.02.//</span></a></li> -->
+            </ol>
+        </section>
+        <section class="react">
+            <h2 class="ract title"><a name="react">React</a></h2>
+        </section>
+    </div>
 </body>
 </html>
