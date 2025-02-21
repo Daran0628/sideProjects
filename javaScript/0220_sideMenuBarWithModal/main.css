@@ -1,0 +1,69 @@
+/* main.css for sideMenueBar.html */
+
+/* common */
+html {font-size: 10px;}
+.screen_out {
+    display: block;overflow: hidden;
+    width: 0;height: 0;
+}
+
+/* #main_wrap */
+    /* menu_bar */
+
+    .menu_bar {
+        position: relative;
+        display: flex;flex-direction: column;align-items: center;justify-content: center;
+        width: 100%;height: 5rem;
+        /* background: #333; */
+        border-bottom: 1px solid gray;
+        font-size: 2.25rem;color: #e8e8e8;
+    }
+    .top {
+        border: 1px dotted salmon;
+        background: #333;
+    }
+    .t-left {
+        display: flex;align-items: center;gap: 1.5rem;
+        position: absolute;left: 0;top: 0;
+    }
+    .menu_bar h1 {
+        width: 4.5rem;height: 4.5rem;
+        padding: 0;
+        margin: 0;
+        margin-left: 0.5rem;
+        /* background: lightblue; */
+    }
+    .menu_bar a {
+        display: block;
+        width: 4rem;height: 4rem;
+        background: url(./img/vsCode-icon.svg) center /contain no-repeat;
+        /* border: 1px dashed red; */
+        margin: 0.5rem auto;
+    }
+    .top_menu {
+        display: flex;justify-content: space-around;align-items: center;
+        width: 60rem;
+    }
+    .t-center {
+        display: flex;justify-content: center;align-items: center;gap: 2rem;
+    }
+    .top .arrow_btn {
+        display: flex;
+        border: 1px dotted red;
+    }
+    .top .btn {
+        width: 4rem;height: 4rem;
+        border: 1px dotted red;
+    }
+    .t-center form {}
+    .t-center input {
+        width: 55rem;height: 3.55rem;
+        border: 1px solid gray;
+        border-radius: 1rem;
+        background: #555;
+        color: white;text-align: center;
+    }
+    .btn .chat {}
+    .t-right {
+        position: absolute;right: 0;top: 0;
+    }

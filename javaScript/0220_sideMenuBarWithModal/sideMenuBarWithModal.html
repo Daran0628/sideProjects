@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Menu Bar with Modal</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <div id="main_wrap">
+        <div class="menu_bar">
+            <div class="top t-left">
+                <h1><a href="#"><span class="screen_out">Visual Studio Code</span></a></h1>
+                <ul class="top_menu">
+                    <li>File</li>
+                    <li>Edit</li>
+                    <li>Selection</li>
+                    <li>View</li>
+                    <li>Go</li>
+                    <li>Run</li>
+                    <li>Terminal</li>
+                    <li>Help</li>
+                </ul>
+            </div>
+            <div class="top t-center">
+                <div class="arrow_btn">
+                    <div class="btn left"></div>
+                    <div class="btn right"></div>
+                </div>
+                <form action="#">
+                    <input type="text" placeholder="Untitled(Workspace)">
+                </form>
+                <button class="btn chat"></button>
+            </div>
+            <div class="top t-right">
+                <div class="layout_box"></div>
+                <div class="window_btn"></div>
+            </div>
+        </div>
+        <div class="main_side_bar">
+            <div class="main_side_top"></div>
+            <div class="main_side_bottom"></div>
+        </div>
+    </div>
+    <script scr="main.js"></script>
+</body>
+</html>
