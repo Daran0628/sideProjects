@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>250307_homework</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {user-select: none;}
+        #main-wrap > div {
+            margin: 3rem;
+        }
+        .result-box {
+            width: 300px;height: 30px;
+            background-color: lightblue;
+            margin-top: 1rem;
+            font-size: 0.85rem;text-align: center;line-height: 30px;
+        }
+
+        .hw2 h2 {margin: 0;}
+        .q-box {
+            display: flex;align-items: center;gap: 1.65rem;
+            padding: 0.25rem;
+            margin-left: 0.75rem;
+            font-size: 1.95rem;
+            span { margin: 0;padding: 0;}
+        }
+        .input-box {
+            display: flex;justify-content: space-evenly;
+            width: 300px;
+            padding: 0.75rem;
+            padding-bottom: 0;
+        }
+        .btn-box {
+            display: flex;justify-content: center;align-items: center;gap: 1.5rem;
+            width: 300px;
+            margin: 1.5rem 0;
+            button {
+                display: flex;justify-content: center;align-items: center;
+                padding: 0.25rem 0.35rem;
+                width: 2.5rem;height: 2.15rem;
+                border: 1px solid #6b6b6b;
+                border-radius: 0.25rem;
+                background-color: #f0f0f0;
+                font-size: 0.95rem;
+                cursor: pointer;
+            }
+            
+        }
+    </style>
+</head>
+    <body>
+        <div id="main-wrap">
+            <div class="hw1">
+                <h2>1. 숫자 맞추기 게임</h2>
+                <input type="number" id="num1_input" placeholder="1~100 중 하나를 입력">
+                <button id="num1_btn">제출</button>
+                <button id="showAnw_btn">정답보기</button>
+                <div class="result-box" id="result_box1"></div>
+            </div>
+        <script>
+                // 1. 숫자 맞추기 게임
+
+                let num1Btn = document.getElementById("num1_btn");
+                let showAnwBtn = document.getElementById("showAnw_btn");
+                let num1Input = document.getElementById("num1_input");
+                let resBox1 = document.getElementById('result_box1');
+
+                num1Input.addEventListener('keydown', function(e) {
+                    if (e.key == "Enter") {
+                        num1Btn.click();
+                    }
+                })
+
+                let ranNum = Math.ceil(Math.random() * 100);
+
+                let flag = false;
+                
+                num1Btn.addEventListener('click', function(){
+
+                    let num1 = parseInt(num1Input.value);
+                    let result;
+                    
+                    (num1 > 100 || num1 <= 0 || num1Input.value == "") ? alert('1~100 중 하나를 입력하세요.') : available();
+                    
+                    if(ranNum == num1){
+                        result = "축하합니다! 맞추셨습니다!";
+                        ranNum = Math.floor(Math.random() *100 + 1);
+                        flag = false;
+                    }else if(ranNum > num1){
+                        result = "선택한 숫자가 너무 작습니다!";
+                    }else if(ranNum < num1){
+                        result = "선택한 숫자가 너무 큽니다!"
+                    }else{
+                        result = "게임을 시작하세요."
+                    };
+
+                    resBox1.textContent = `${result}`;
+
+                    })
+
+                showAnwBtn.addEventListener("click", function(){
+                    
+                    if(flag){
+                        (confirm('정답을 확인하면 게임이 끝납니다.') == true) ? 
+                        resBox1.textContent = "정답 : " + ranNum : resBox1.textContent = "계속 도전하세요, 화이팅!";
+                    }else{
+                        resBox1.textContent = "답 입력 후 정답을 확인하세요.";
+                    }
+                    
+                })
+
+                function available(){ 
+                    
+                        flag = flag ? true : true;
+                    
+                }
+
+        </script>
+            <div class="hw2">
+                <h2>2. 사칙연산 퀴즈</h2>
+                <div class="q-box">
+                    <span>Q .</span>
+                    <span id="x_val"> X </span>
+                    <span id="oper">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 550 550" width="1.5rem" height="1.5rem">
+                            <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                            <path d="M258.6 0c-1.7 0-3.4 .1-5.1 .5C168 17 115.6 102.3 130.5 189.3c2.9 17 8.4 32.9 15.9 47.4L32 224l-2.6 0C13.2 224 0 237.2 0 253.4c0 1.7 .1 3.4 .5 5.1C17 344 102.3 396.4 189.3 381.5c17-2.9 32.9-8.4 47.4-15.9L224 480l0 2.6c0 16.2 13.2 29.4 29.4 29.4c1.7 0 3.4-.1 5.1-.5C344 495 396.4 409.7 381.5 322.7c-2.9-17-8.4-32.9-15.9-47.4L480 288l2.6 0c16.2 0 29.4-13.2 29.4-29.4c0-1.7-.1-3.4-.5-5.1C495 168 409.7 115.6 322.7 130.5c-17 2.9-32.9 8.4-47.4 15.9L288 32l0-2.6C288 13.2 274.8 0 258.6 0zM256 224a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
+                            <path stroke="black" stroke-width="2rem" fill="white" d="M258.6 0c-1.7 0-3.4 .1-5.1 .5C168 17 115.6 102.3 130.5 189.3c2.9 17 8.4 32.9 15.9 47.4L32 224l-2.6 0C13.2 224 0 237.2 0 253.4c0 1.7 .1 3.4 .5 5.1C17 344 102.3 396.4 189.3 381.5c17-2.9 32.9-8.4 47.4-15.9L224 480l0 2.6c0 16.2 13.2 29.4 29.4 29.4c1.7 0 3.4-.1 5.1-.5C344 495 396.4 409.7 381.5 322.7c-2.9-17-8.4-32.9-15.9-47.4L480 288l2.6 0c16.2 0 29.4-13.2 29.4-29.4c0-1.7-.1-3.4-.5-5.1C495 168 409.7 115.6 322.7 130.5c-17 2.9-32.9 8.4-47.4 15.9L288 32l0-2.6C288 13.2 274.8 0 258.6 0zM256 224a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
+                            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="3s" repeatCount="indefinite"/>
+                        </svg>
+                    </span>
+                    <span id="y_val"> Y </span>
+                    =
+                    <span id="q_mark"> ? </span>
+                </div>
+                <div class="input-box">
+                    <input type="number" placeholder="계산된 몫을 입력">
+                    <button id="submit_btn">제출</button>
+                </div>
+                <div class="btn-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1.5rem" height="1.5rem">
+                        <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                        <path fill="#6b6b6b" d="M403.8 34.4c12-5 25.7-2.2 34.9 6.9l64 64c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-64 64c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6l0-32-32 0c-10.1 0-19.6 4.7-25.6 12.8L284 229.3 244 176l31.2-41.6C293.3 110.2 321.8 96 352 96l32 0 0-32c0-12.9 7.8-24.6 19.8-29.6zM164 282.7L204 336l-31.2 41.6C154.7 401.8 126.2 416 96 416l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c10.1 0 19.6-4.7 25.6-12.8L164 282.7zm274.6 188c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6l0-32-32 0c-30.2 0-58.7-14.2-76.8-38.4L121.6 172.8c-6-8.1-15.5-12.8-25.6-12.8l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c30.2 0 58.7 14.2 76.8 38.4L326.4 339.2c6 8.1 15.5 12.8 25.6 12.8l32 0 0-32c0-12.9 7.8-24.6 19.8-29.6s25.7-2.2 34.9 6.9l64 64c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-64 64z"/></svg>
+                    <button id="x_btn" class="x">X</button>
+                    <button id="oper_btn" class="oper">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 550 550" width="1.15rem" height="1.15rem">
+                        <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                        <path stroke="black" stroke-width="2rem" fill="none" d="M258.6 0c-1.7 0-3.4 .1-5.1 .5C168 17 115.6 102.3 130.5 189.3c2.9 17 8.4 32.9 15.9 47.4L32 224l-2.6 0C13.2 224 0 237.2 0 253.4c0 1.7 .1 3.4 .5 5.1C17 344 102.3 396.4 189.3 381.5c17-2.9 32.9-8.4 47.4-15.9L224 480l0 2.6c0 16.2 13.2 29.4 29.4 29.4c1.7 0 3.4-.1 5.1-.5C344 495 396.4 409.7 381.5 322.7c-2.9-17-8.4-32.9-15.9-47.4L480 288l2.6 0c16.2 0 29.4-13.2 29.4-29.4c0-1.7-.1-3.4-.5-5.1C495 168 409.7 115.6 322.7 130.5c-17 2.9-32.9 8.4-47.4 15.9L288 32l0-2.6C288 13.2 274.8 0 258.6 0zM256 224a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
+                        </svg>
+                    </button>
+                    <button id="y_btn" class="y">Y</button>
+                    <button id="suffle_btn" class="all">all</button>
+                </div>
+                <div class="result-box" id="result_box2">
+                    ! 버튼을 클릭하여 식을 완성하세요.
+                </div>
+            </div>
+        <script>
+            // 2. 사칙연산 퀴즈
+
+            let xBtn = document.getElementById("x_btn");
+            let operBtn = document.getElementById("oper_btn");
+            let yBtn = document.getElementById("y_btn");
+            let suffleBtn = document.getElementById("suffle_btn");
+            let submitBtn = document.getElementById("submit_btn");
+
+            let xVal = document.getElementById("x_val");
+            let oper = document.getElementById("oper");
+            let yVal = document.getElementById("y_val");
+            let finAnswer = document.getElementById("q_mark");
+
+            let btnGroup = [xBtn, yBtn, operBtn, suffleBtn];
+            let operators = ["+", "-", "*", "/"];
+
+            btnGroup.forEach(btn => {
+                btn.addEventListener('click', function(e){
+                    let clkBtn = e.currentTarget.classList;
+
+                    if(clkBtn.contains('x')){
+                        xVal.textContent = getRanNum();
+                    }else if(clkBtn.contains('y')){
+                        yVal.textContent = getRanNum();
+                    }else if(clkBtn.contains('oper')){
+                        oper.textContent = operators[getRanOper()];
+                    }else{
+                        xVal.textContent = getRanNum();
+                        yVal.textContent = getRanNum();
+                        oper.textContent = operators[getRanOper()];
+                    }
+                });
+            });
+        
+        function getRanNum() {
+           return Math.floor(Math.random() * 20);
+        }
+        function getRanOper() {
+             return Math.floor(Math.random() * 4);
+        }
+
+        submitBtn.addEventListener('click', function(){
+            let x = parseInt(xVal.innerText);
+            let y = parseInt(yVal.innerText);
+            let op = oper.innerText;
+
+            
+        })
+
+
+        </script>
+            <div class="hw3">
+                <h2></h2>
+                <div class="result-box"></div>
+            </div>
+            <div class="hw4">
+                <h2></h2>
+                <div class="result-box"></div>
+            </div>
+            <div class="hw5">
+                <h2></h2>
+                <div class="result-box"></div>
+            </div>
+            <div class="hw6">
+                <h2></h2>
+                <div class="result-box"></div>
+            </div>
+        </div>
+    </body>
+</html>
