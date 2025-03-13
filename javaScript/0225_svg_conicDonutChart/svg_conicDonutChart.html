@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>conicDonutChart</title>
+    <style>
+        .conic_box {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="conic_box">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="40" fill="none" stroke-width="5" stroke="white"
+            stroke-dasharray="252.3" stroke-dashoffset="201.25"
+            transform="rotate(-87.5, 50, 50)"
+            />
+        </svg>
+        <p class="percent" value="75">75%</p>
+    </div>
+    <script>
+
+        const $percent = document.getElementsByTagName('p')[0].value;
+
+        function circumference(r) {
+            return parseInt(2*3.14*r);
+        } // 원의 둘레 stroke-dasharray 값
+        function percent(val) {
+            return parseInt()
+        } // 차트 값 stroke-dashoffset
+        console.log(circumference(40));
+        console.log($percent);
+    </script>
+</body>
+</html>

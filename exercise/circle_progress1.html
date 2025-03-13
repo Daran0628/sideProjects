@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cicle progress</title>
+</head>
+<body>
+    <svg id="svg1" viewBox="0 0 300 300" width="200" height="200">                                                                                                                                                                           
+        <circle id="c1" cx="150" cy="150" r="130" fill="none" stroke="orangered" stroke-width="35"
+            stroke-dasharray="816.4" stroke-dashoffset="816" stroke-linecap="round" transform="rotate(-90, 150, 150)">
+            <!-- <animate id="ani1" attributeName="stroke-dashoffset" from="816" id="c1" dur="2s" fill="freeze"/> -->
+        </circle>                                                                                                                                                                                                 
+    </svg>
+    <script>
+        // 원둘레 함수 - 원둘레 * (parameter value)
+
+        const $svg = document.getElementById('svg1');
+        const $r = document.getElementById('c1').getAttribute('r');
+        let circumference = 2 * 3.14 * $r;
+        let progress = circumference - (circumference * 0.6); // 60%로 임의 지정한 값
+
+        
+        document.getElementById('svg1').addEventListener('click', function() {
+            console.log(circumference);
+            document.getElementById('c1').innerHTML =`<animate id="ani1" attributeName="stroke-dashoffset" from="816" id="c1" dur="2s" fill="freeze"/>`
+            document.getElementById('ani1').setAttribute('to', progress);
+        });
+    </script>
+</body>
+</html>

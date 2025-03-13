@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cicle progress</title>
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+        #main_wrap {
+            height: 100vh;
+            padding: 3rem;
+            background: #000;
+            color: whitesmoke;
+        }
+        ul {display: flex;}
+        li {
+            position: relative;
+            /* border: 1px dotted white; */
+            text-align: center;
+        }
+        li svg {
+            z-index: 5;
+        }
+        li .info-text {
+            position: absolute;top: 30%;left: 50%;
+            transform: translateX(-50%);
+            user-select: none;
+            display: flex;flex-direction: column;align-items: center;
+        }
+        li span {font-weight: bold;}
+        li span:first-child {
+            font-size: 2.35rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="main_wrap">
+        <ul>
+            <li class="perVal" data-percentage="70">
+                <div class="info-text">
+                    <span>70%</span>
+                    <span>HTML5</span>
+                </div>
+                <svg id="svg1" viewBox="0 0 300 300" width="200" height="200">                                                                                                                                                                           
+                    <!-- <circle cx="150" cy="150" r="114" fill="none" stroke="lightgray" stroke-width="3"></circle>                                                                                                                                                                                                  -->
+                    <!-- <circle cx="150" cy="150" r="146" fill="none" stroke="lightgray" stroke-width="3"></circle>                                                                                                                                                                                                  -->
+                    <circle cx="150" cy="150" r="130" fill="none" stroke="rgb(53, 53, 53)" stroke-width="30"></circle>                                                                                                                                                                                                
+                    <circle id="c1" cx="150" cy="150" r="130" fill="none" stroke="whitesmoke" stroke-width="35"
+                        stroke-dasharray="816.4" stroke-dashoffset="816" stroke-linecap="round" transform="rotate(-90, 150, 150)">
+                        <animate id="ani1" attributeName="stroke-dashoffset" from="816" id="c1" dur="1s" fill="freeze" />
+                    </circle>                                                                                                                                                                                                 
+                </svg>
+            </li>
+            <!-- <li class="perVal" value="40">40%</li>
+            <li class="perVal" value="30">30%</li>
+            <li class="perVal" value="20">20%</li>
+            <li class="perVal" value="10">10%</li> -->
+        </ul>
+    </div>
+    <script>
+        // 원둘레 함수 - 원둘레 * (parameter value)
+
+        const $svg = document.getElementById('svg1');
+        const $r = document.getElementById('c1').getAttribute('r');
+        let circumference = 2 * 3.14 * $r;
+
+        const $perVal = document.querySelectorAll('.perVal');        
+
+        
+        document.getElementById('svg1').addEventListener('click', function() {
+
+            console.log($perVal[0].dataset.percentage);
+            console.log(getPercentage( $perVal[0].dataset.percentage ));
+
+            document.getElementById('ani1').setAttribute('to', getPercentage( $perVal[0].dataset.percentage ));
+            document.getElementById('ani1').beginElement();
+        });
+        
+        function getPercentage( v ) {           
+            return circumference - ( circumference * ( v / 100) );
+        }
+        
+    </script>
+</body>
+</html>

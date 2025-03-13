@@ -63,7 +63,10 @@ html {font-size: 10px;}
         background: #555;
         color: white;text-align: center;
     }
-    .btn .chat {}
+    .btn .chat {
+        display: block;
+        width: 3rem;height: 3rem;
+    }
     .t-right {
         position: absolute;right: 0;top: 0;
     }
