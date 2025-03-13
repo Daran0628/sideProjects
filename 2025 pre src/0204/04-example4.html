@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 function</title>
+</head>
+<body>
+    <script>
+        function func1() {
+            console.log("안녕하세요")
+        }
+
+        func1();
+    
+        function func2(매개변수) {
+            console.log("a의 값은 : " + 매개변수);
+        }
+
+        func2(50); // a의
+
+        function func3(a, b) {
+            console.log("a의 값은 : "+ a);
+            console.log("b의 값은 : "+ b);
+        }
+
+        func3(3, 5);
+
+        // function func4(a, b) {
+        //     var c = a + b;
+        //     return c;
+        // }
+        
+        var func4 = function(a, b){
+            var c = a + b;
+            return c;
+        }
+
+        // console.log(func4(5, 2))
+        var d = func4(5, 2);
+        console.log(d)
+
+        // parameter X return X
+        // parameter O return X
+        // parameter O return O
+        // parameter X return O
+
+        
+
+    </script>
+</body>
+</html>

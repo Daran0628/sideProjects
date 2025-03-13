@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM(Document Object Model)</title>
+</head>
+<body>
+    <h1 id="title1"></h1>
+    <p id="p1">안녕하세요.</p>
+    <h2>반갑습니다.</h2>
+    <input id="input1" name="input1" type="text" value="제목을 입력하세요."/>
+    <button id="title_btn" >제목 바꾸기</button><br>
+    <button id="btn1">속성 방식</button>
+    <button id="btn2" onclick="func1();">인라인 방식</button>
+    <button id="btn3">이벤트리스너 방식</button>
+
+    <script>
+  
+
+        // id 접근 방식
+        // document.getElementById("p1").style = "color : red;"
+        document.querySelector("#p1").style = "color : magenta;"
+        
+        // 태그 요소 접근 방식
+        // document.getElementsByTagName("h2")[0].style = "color : blue;" // 복수 선택자는 인덱스 사용
+        document.querySelectorAll("h2")[0].style = "color : cyan;"
+        
+        console.dir(document.getElementById("btn1")); // dir (directory)
+        console.dir(document.getElementById("btn2"));
+
+        // 1.속성 방식
+        document.getElementById("btn1").onclick = function() {
+            alert("속성 방식");
+        }
+        
+        // 2. 인라인 function
+        function func1() {
+            alert("인라인 방식");
+        }
+        
+        // 3. Event Listener
+        document.getElementById("btn3").addEventListener("click", function() {
+            alert("이벤트 리스너 방식")
+            // console.dir(document.getElementById("input1"));
+            var val1 = document.getElementById("input1").value;
+            // console.log(val1);
+            // console.dir(document.getElementById("title1"));
+        })
+        
+        document.getElementById("title_btn").addEventListener("click", function() {
+            alert("제목 수정됨")
+            var val1 = document.getElementById("input1").value;
+            document.getElementById("title1").textContent = val1;
+        })
+        
+
+        
+
+    </script>
+</body>
+</html>

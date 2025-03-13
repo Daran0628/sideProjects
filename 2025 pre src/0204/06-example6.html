@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 object</title>
+</head>
+<body>
+    <script>
+        var car = {
+            color : "흰색",
+            fuel : 50,
+            putAcc : function() {
+                console.log("엑셀을 밟으면 차가 앞으로 갑니다.")
+            }, // 메서드 method (함수라 부르지 않음)
+            putBreak : function(a) {
+                console.log(a + "의 힘만큼 브레이크를 밟습니다.")
+                this.fuel = this.fuel - 5; // 내부에서 해당 객체를 지칭
+                return a + 10
+            }
+        }; // 객체 선언
+
+        console.log("car " + car);
+        console.log("color : " + car.color);
+        console.log("fuel : " + car.fuel);
+        car.putAcc();
+        
+        var z = car.putBreak(10);
+        console.log("리턴값은 : " + z);
+        console.log("fuel : " + car.fuel);
+
+</script>
+</body>
+</html>

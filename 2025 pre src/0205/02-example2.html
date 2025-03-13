@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기 calculator</title>
+    <style>
+        input {width: 1.5rem;height: 1.5rem;font: 1.3rem;}
+    </style>
+</head>
+<body>
+    <input type="text" id="input1">
+    <input type="text" id="input2">
+    <br>
+    <button id="plus">+</button>
+    <button id="minus">-</button>
+    <button id="multiple">*</button>
+    <button id="division">/</button>
+    <h1 id="result"></h1>
+
+    <script>
+        // 계산기 만들기
+        // 0. 버튼 plus를 누르는 이벤트를 작성한다.
+        // 1. 버튼 plus를 누를 시 각각 input1과 input2에서 데이터를 가져온다.
+        // 2. 가져온 데이터를 숫자로 치환한다. parseInt()
+        // 3. 숫자로 지환한 두 데이터를 더한다
+        // 4. 더한 데이터를 h1 태그의 textContent에 삽입한다.
+
+        document.getElementById("plus").addEventListener("click", function() {
+            var val1 = document.getElementById("input1").value;
+            var val2 = document.getElementById("input2").value;
+
+            var n1 = parseInt(val1);
+            var n2 = parseInt(val2);
+
+            document.getElementById("result").textContent = n1 + " + " + n2 + " = " + (n1 + n2);
+            console.log(
+                document.getElementById("result").textContent = n1 + " + " + n2 + " = " + (n1 + n2)
+            )
+        })
+
+        document.getElementById("minus").addEventListener("click", function() {
+            var val1 = document.getElementById("input1").value;
+            var val2 = document.getElementById("input2").value;
+
+            var n1 = parseInt(val1);
+            var n2 = parseInt(val2);
+
+            document.getElementById("result").textContent = n1 + " - " + n2 + " = " + (n1 - n2);
+            console.log(
+                document.getElementById("result").textContent = n1 + " - " + n2 + " = " + (n1 - n2)
+            )
+        })
+
+        document.getElementById("multiple").addEventListener("click", function() {
+            var val1 = document.getElementById("input1").value;
+            var val2 = document.getElementById("input2").value;
+
+            var n1 = parseInt(val1);
+            var n2 = parseInt(val2);
+
+            document.getElementById("result").textContent = n1 + " * " + n2 + " = " + n1 * n2;
+            console.log(
+                document.getElementById("result").textContent = n1 + " * " + n2 + " = " + n1 * n2
+            )
+        })
+
+        document.getElementById("division").addEventListener("click", function() {
+            var val1 = document.getElementById("input1").value;
+            var val2 = document.getElementById("input2").value;
+
+            var n1 = parseInt(val1);
+            var n2 = parseInt(val2);
+
+            document.getElementById("result").textContent = n1 + " / " + n2 + " = " +n1 / n2;
+            console.log(
+                document.getElementById("result").textContent = n1 + " / " + n2 + " = " +n1 / n2
+            )
+        })
+    </script>
+</body>
+</html>
