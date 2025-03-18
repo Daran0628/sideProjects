@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>할 일 목록</title>
+    <style>
+        * {box-sizing: border-box;}
+        ul {list-style: none;}
+        #main-wrap {
+            width: 500px;
+            padding: 0.5rem 1.5rem;
+            margin: 0 auto;
+            background-color: #eee;
+        }
+        h1 {text-align: center;}
+        #todoInput {width: 100%;}
+        /* div {text-align: center;} */
+
+        .cal-box {
+            display: flex;justify-content: space-between;
+            width: 100%;
+            span {width: 20%;}
+            #deadLine {width: 80%;}
+        }
+        .btn-box {
+            width: 100%;
+            text-align: center;
+        }
+        
+        #input-box {border: 1px solid coral}
+        #list-box {border: 1px solid coral;margin-top: 3rem;}
+        .checked {text-decoration: line-through;color: gray}
+    </style>
+</head>
+<body>
+    <div id="main-wrap">
+        <h1>할 일 목록</h1>
+        <div id="input-box">
+            <input type="text" id="todoInput" placeholder="할 일을 입력하세요">
+            <div class="cal-box">
+                <span>마감일 :</span><input type="date" id="deadLine">
+            </div>
+            <button type="submit" id="submitBtn">등록</button>
+        </div>
+        <div id="list-box">
+            <div class="btn-box">
+                <button id="all">전체</button>
+                <button id="active">활성</button>
+                <button id="compledted">완료</button>
+            </div>
+            <ul id="todoList"></ul>
+        </div>
+    </div>
+    <script>
+        // 할 일 입력폼이 빈 값일 때 동록되지 않게 해야 함
+        // 마감 날찌는 선택 사항
+        // 폼 제출 후, 새로운 할 일이 리스트에 추가
+        //  -> 할 일 설명 (마감: 입력된 날짜) 
+        //  -> 상태 표시 : 체크 박스로 완료/미완료 표시
+        //  -> 완료 상태일 때 스타일 변화 : 취소선, 폰트색 흐리게
+        // 액션 버튼
+        //  -> edit 클릭시 inline 편집 가능한 입력 필드 변경 후 저장
+        //  -> delete 클릭시 해당 할 일을 목록에서 삭제
+        // 필터링 기능
+
+        
+        document.getElementById('submitBtn').addEventListener('click', function(e){
+            const todoInput = document.getElementById('todoInput');
+            const deadLine = document.getElementById('deadLine');
+            const newLi = document.createElement('li');
+            const checkBox = document.createElement('input');
+            checkBox.setAttribute('type', 'checkbox');
+            // checkBox 체크 이벤트
+            checkBox.addEventListener('click', function(){
+                const compledted = checkBox.checked;
+
+                if(compledted){
+                    checkBox.parentElement.classList.add('checked');
+                } else{
+                    checkBox.parentElement.classList.remove('checked');
+                }
+            })
+            const taskName = document.createElement('span');
+            const dLineDate = document.createElement('span');
+            const editBtn = document.createElement("button");
+            editBtn.textContent = "edit";
+            // edit 이벤트
+            editBtn.addEventListener('click', function(){
+
+            })
+            const saveBtn = document.createElement("button");
+            saveBtn.textContent = "save";
+            saveBtn.style.display = "none";
+            const delBtn = document.createElement("button");
+            delBtn.textContent = "delete";
+            // delete 이벤트
+            delBtn.addEventListener('click', function(){
+                
+            })
+
+
+            if(todoInput.value){
+                newLi.append(checkBox);
+                taskName.textContent = todoInput.value;
+                newLi.append(taskName);
+                dLineDate.textContent = `(마감: ${deadLine.value})`;
+                (deadLine.value)? newLi.append(dLineDate) : "";
+                newLi.append(editBtn);
+                newLi.append(saveBtn);
+                newLi.append(saveBtn);
+                newLi.append(delBtn);
+
+                document.getElementById('todoList').append(newLi);
+            } else{
+                e.preventDefault();
+                alert('할 일을 입력해주세요.');
+            }
+
+        })
+    </script>
+</body>
+</html>

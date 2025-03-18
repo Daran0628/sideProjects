@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO classList</title>
+</head>
+
+<body>
+    <h1>TO DO LIST</h1>
+    <div id="div1">
+        <ul id="ul1"></ul>
+    </div>
+
+    <input type="text" name="txt1" id="txt1">
+    <button id="btn1">할 일 추가</button>
+
+
+    <script>
+        // li 태그 추가
+        // span 태그 추가에 txt1에서 데이터 읽어서 span 태그 안에 추가
+        // 수정 버튼 추가
+        // 삭제 버튼 추가
+
+        document.getElementById("btn1").addEventListener('click', function () {
+            const li = document.createElement("li");
+            const span = document.createElement("span");
+
+            span.textContent = document.getElementById("txt1").value;
+            document.getElementById("txt1").value = ""; // input value 초기화
+
+            const modify_btn = document.createElement("button");
+            modify_btn.textContent = "수정"
+            // 수정 버튼에 대한 이벤트
+            modify_btn.addEventListener('click', function () {
+                const eventElement = this.previousElementSibling;
+                const editInput = document.createElement('input');
+                editInput.value = eventElement.innerText;
+                modify_btn.previousElementSibling.replaceWith(editInput);
+                // 저장 버튼에 대한 이벤트
+                const save_btn = document.createElement('button');
+                save_btn.textContent = '저장';
+
+                save_btn.addEventListener('click', function () {
+                    save_btn.previousElementSibling.replaceWith(span);
+
+                    span.textContent = editInput.value;
+                    li.append(span);
+                    li.append(modify_btn);
+                    li.append(delete_btn);
+                    li.removeChild(save_btn);
+
+                    save_btn.parentElement.replaceWith(li);
+
+                })
+                modify_btn.replaceWith(save_btn);
+            })
+
+            const delete_btn = document.createElement("button");
+            delete_btn.textContent = "삭제"
+            // 삭제 버튼에 대한 이벤트
+            delete_btn.addEventListener("click", function () {
+                delete_btn.parentElement.remove();
+            })
+
+            li.append(span);
+            li.append(modify_btn);
+            li.append(delete_btn);
+
+            document.getElementById("ul1").append(li);
+        })
+    </script>
+</body>
+
+</html>

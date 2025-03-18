@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO classList</title>
+    <style>
+        ul {list-style: none;}
+        .chk-box {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TO DO LIST</h1>
+    <div id="div1">
+        <h2>해야 할 일</h2>
+        <ul id="ul1"></ul>
+        <input type="text" name="txt1" id="txt1">
+        <button id="btn1">할 일 추가</button>
+        <h2>완료한 일</h2>
+        <ul id="ul2"></ul>
+    </div>
+
+
+
+
+    <script>
+        let local = document.getElementById('ul1').children.length;
+        
+        document.getElementById('txt1').addEventListener('keydown', function(e) {
+            if (e.key == "Enter") {
+                document.getElementById("btn1").click();
+            }
+        })
+        // li 태그 추가
+        // span 태그 추가에 txt1에서 데이터 읽어서 span 태그 안에 추가
+        // 수정 버튼 추가
+        // 삭제 버튼 추가
+
+        // + 체크 박스로 완성도 확인 기능
+        // + 완성 된 할 일은 재분류
+        // + 작성된 할 일들을 카테고리로 구분 > 일, 집, 친구, 기타, 선택 안함
+        
+        document.getElementById("btn1").addEventListener('click', function () {
+            const li = document.createElement("li");
+            const checkBox = document.createElement("input");
+            const span = document.createElement("span");
+            const editInput = document.createElement("input");
+            const todoUl = document.getElementById('ul1');
+            const compUl = document.getElementById('ul2');
+
+            checkBox.setAttribute("type", "checkbox");
+            // 체크박스에 대한 이벤트
+            checkBox.addEventListener('click', function(){
+                const checked = checkBox.checked;
+                const thisLi = checkBox.parentElement;
+
+                if(checked){
+                    li.classList.add('chk-box');
+                    compUl.append(thisLi);
+                    
+                }else{
+                    li.classList.remove('chk-box');
+                    todoUl.append(thisLi);
+                }
+            })
+
+            span.textContent = document.getElementById("txt1").value;
+            document.getElementById("txt1").value = ""; // input value 초기화
+            editInput.style.display = 'none';
+
+            editInput.addEventListener('keydown', function(e) {
+                if (e.key == "Enter") {
+                    save_btn.click();
+                }
+            })
+
+            const modify_btn = document.createElement("button");
+            modify_btn.textContent = "수정"
+            // 수정 버튼에 대한 이벤트
+            modify_btn.addEventListener('click', function () {
+
+                const eventElement = this.parentElement.children[1];
+
+                editInput.value = eventElement.innerText;
+                eventElement.replaceWith(editInput);
+                save_btn.style.display = 'inline-block';
+                editInput.style.display = 'inline-block';
+                this.style.display = 'none';
+
+            })
+
+            const save_btn = document.createElement('button');
+            save_btn.textContent = '저장';
+            save_btn.style.display = 'none';
+            // 저장 버튼에 대한 이벤트
+            save_btn.addEventListener('click', function () {
+                const eventElement = this.parentElement.children[1];
+                const liId = this.parentElement.getAttribute('id');
+
+                eventElement.replaceWith(span);
+                span.textContent = editInput.value;
+                modify_btn.style.display = 'inline-block';
+                this.style.display = 'none';        
+                
+                localStorage.setItem(liId, editInput.value);
+            })
+
+            const delete_btn = document.createElement("button");
+            delete_btn.textContent = "삭제"
+            // 삭제 버튼에 대한 이벤트
+            delete_btn.addEventListener("click", function () {
+                const checked = checkBox.checked;
+
+                if(!checked){
+                    confirm(`${delete_btn.parentElement.firstElementChild.innerText} 완료되지 않은 일정을 삭제하시겠습니까?`)
+                ? delete_btn.parentElement.remove() : "";
+                } else{
+                    confirm(`${delete_btn.parentElement.firstElementChild.innerText} 완료한 일정을 삭제합니다.`)
+                ? delete_btn.parentElement.remove() : "";
+                }
+                
+                // delete_btn.parentElement.remove();        
+            })
+
+            li.setAttribute('id', `local_${local}`);
+            li.append(checkBox);
+            li.append(span);
+            li.append(editInput);
+            li.append(modify_btn);
+            li.append(save_btn);
+            li.append(delete_btn);
+
+            document.getElementById("ul1").append(li);
+
+            const liId = document.getElementById(`local_${local}`);
+            const listVal = liId.firstElementChild.innerText;
+
+            localStorage.setItem(`local_${local++}`, `${listVal}`);
+        })
+    </script>
+</body>
+
+</html>

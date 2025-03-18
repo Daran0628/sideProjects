@@ -1,0 +1,70 @@
+/* main.css for index.html skenmove */
+
+    /* font */
+@import url(https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css);
+
+    /* common */
+* {font-family: "SUIT Variable";}
+.screen-out {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+.inner {padding: 0 5rem;}
+
+    /* #index_wrap */
+#index_wrap {
+    main {
+        width: 100vw;height: 100vh;
+        background-color: lightblue;
+    }
+    footer {
+        background-color: lightpink;
+    }
+}
+    /* #index_wrap > header */
+header {
+    position: absolute;top: 0;left: 0;right: 0;
+    color: #fff;
+}
+/* .header-wrap <- grid layout design in scss */
+header .header-wrap {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    h1 {grid-column: 1;}
+    nav {grid-column: 5 / 9;}
+    .link-box {grid-column: 9 / 12;}
+    .util-box {grid-column: 12 / 13;}
+}
+header h1 a {
+    display: block;
+    width: 7rem;height: 5.5rem;
+    background: url(./image/mainLogo.svg) center / contain no-repeat;
+    border: 1px dashed white;
+}
+header .nav-ul {
+    display: flex;justify-content: space-between;align-items: center;
+    height: 100%;
+    font-family: var(--font-b);
+    font-size: 1.5rem;font-weight: 800;
+}
+header .link-box {
+    display: flex;justify-content: center;align-items: center;
+    font-style: 1rem;font-weight: 800;
+}
+header .link-box li:nth-child(2) {
+    width: 1.25rem;height: 1.15rem;
+    background: url(./image/youtube.svg) center / contain no-repeat;
+}
+header .link-box li:nth-child(3) {}
+header .link-box li:nth-child(4) {}
+header .util-box {
+    display: flex;justify-content: center;align-items: center;
+}
+header .sns-box {display: none;}
+
+    /* #index_wrap > main */
+        /* main > section.main-visual */
+main .main-visual video {z-index: -10;}
