@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Dongle&family=Jua&display=swap');
+@font-face {
+    font-family: 'KakaoSmallSans-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2503@1.0/KakaoSmallSans-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+        * {box-sizing: border-box;}
+        #main-wrap {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        ul {list-style: none;}
+        a, a:visited {color: darkblue;font-size: 1.35rem;}
+        .outline {
+            width: 1200px;height: 950px;
+            background: url(./study_bg.svg) top / contain no-repeat;
+            background-color: #fff;
+            border: 1px solid lightskyblue;
+            h1 {
+                margin: 0;
+                margin-top: 2.25rem;
+                font-family: "DoHyeon";
+                font-size: 4.5rem;text-align: center;
+                color : #392699;
+                text-shadow: 5px 5px 0 #dfd2d2, -5px -5px 0 #fff;
+            }
+            .content-wrap {
+                display: flex;justify-content: space-between;align-items: flex-end;
+                height: 820px;padding: 2rem 2.55rem;
+                /* border: 1px solid blueviolet; */
+                font-family: "GowunDodum-Regular";
+                font-size: 1.5rem;font-weight: bolder;
+                .illust {
+                    align-self: center;
+                    position: relative;left: 10px;
+                    width: 430px;height: 450px;
+                    background: url(./studyIllust_01.png) center / cover no-repeat;
+                    /* border: 1px solid seagreen; */
+                }
+                .inner-content-box {
+                    width: calc(100% - 495px);height: 85%;
+                    /* border: 1px solid orange; */
+                    /* padding: 1.5rem 0.5rem; */
+                    .ul1 > li{padding: 0.35rem 0;}
+                    .li2 {
+                        font-size: 1.4rem;
+                        padding: 1.5rem 0;
+                        span {
+                            display: block;
+                            padding: 0.35rem 1.5rem ;
+                            font-size: 1.25rem;}
+                        li {
+                            padding: 0.5rem 1.75rem ;
+                            .ex {
+                                padding: 0.5rem 1.5rem
+                                }
+                            &:first-child {
+                                padding-top: 1.5rem;
+                            }
+                            }
+                        /* border: 1px solid coral; */
+                    }
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="main-wrap">
+        <div class="outline">
+            <h1>STUDYING ON WEEKEND</h1>
+            <div class="content-wrap">
+                <div class="illust"></div>
+                <div class="inner-content-box">
+                    <ul class="ul1">
+                        <li>시간 : 매주 일요일 오후 3시</li>
+                        <li>모임 링크 : <a href="https://teams.live.com/meet/935040008339?p=DF5566Vyj0gpEoytCV">팀즈 모임 STUDY</a></li>
+                        <li>스터디 기록 : <a href="https://daran0628.github.io/kosmo154study/">멤버's 작업물 페이지</a> ← 작업중</li>
+                        <li>모임 메니저: 신다란 ; 카카오 ID : DARAN0628</li>
+                    </ul>
+                    <ul class="li2">참여 방법    
+                        <li>0. 정해진 일정, 또는 주말 동안 편한 시간대에 자유롭게 참여</li>
+                        <li>1. 공부 시작 시, 스터디 미팅 채팅창에 스터디 시작을 알림 
+                            <span class="ex">(예: 인삿말, 공부 계획, 내용, etc.)</span></li>
+                        <li>2. 같은 시간 공부 중인 멤버가 있다면 질문 및 소통 가능</li>
+                        <li>3. 화면 공유와 마이크를 통해 토론 가능</li>
+                        <li><span>* 꾸준한 스터디를 위해 서로서로 도움/감시역이 되어줍시다!</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
